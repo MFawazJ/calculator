@@ -38,7 +38,7 @@ class AdditionTest extends TestCase
     public function test_division_2_value_is_zero(){
         $division = new DivisionService(7,0);
         $total = $division->calculate();
-        $this->assertEquals('2nd Value Cannot Be Zero',$total);
+        $this->assertEquals('2nd Value Cannot Be Zero or Number Should be Numeric',$total);
     }
 
     public function test_division_total(){
@@ -57,6 +57,24 @@ class AdditionTest extends TestCase
         $division = new SquareService(-9);
         $total = $division->calculate();
         $this->assertEquals("Square Must Have A Positive Value",$total);
+    }
+
+    public function test_square_with_letters(){
+        $division = new SquareService('sdsadsad');
+        $total = $division->calculate();
+        $this->assertEquals("Square Must Have A Positive Value",$total);
+    }
+
+    public function test_division_total_with_value(){
+        $division = new DivisionService('ssfdsf',2);
+        $total = $division->calculate();
+        $this->assertEquals('2nd Value Cannot Be Zero or Number Should be Numeric',$total);
+    }
+
+    public function test_division_total_with_2nd_value(){
+        $division = new DivisionService(2,'asdsad');
+        $total = $division->calculate();
+        $this->assertEquals('2nd Value Cannot Be Zero or Number Should be Numeric',$total);
     }
 
 

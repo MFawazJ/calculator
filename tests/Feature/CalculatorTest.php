@@ -20,10 +20,4 @@ class CalculatorTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_submit_page_load()
-    {
-        $response = $this->post('/submit');
-
-        $response->assertRedirect();
-    }
 }
