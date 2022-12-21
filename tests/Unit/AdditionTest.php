@@ -58,4 +58,7 @@ class AdditionTest extends TestCase
         $total = $division->calculate();
         $this->assertEquals("Square Must Have A Positive Value",$total);
     }
+
+
+
 }

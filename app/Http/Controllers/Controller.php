@@ -7,7 +7,6 @@ use App\Services\DivisionService;
 use App\Services\MultiplicationService;
 use App\Services\SquareService;
 use App\Services\SubstractionServices;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -25,7 +24,7 @@ class Controller extends BaseController
 
     public function submit(Request $request){
 
-        if(!is_numeric( $request->value1) && !is_numeric($request->value2)){
+        if(!is_numeric( $request->value1) || !is_numeric($request->value2)){
 
             return redirect('/')->with('result',"Should be Numeric Value");
 
