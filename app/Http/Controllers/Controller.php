@@ -24,11 +24,7 @@ class Controller extends BaseController
 
     public function submit(Request $request){
 
-        if(!is_numeric( $request->value1) || !is_numeric($request->value2)){
 
-            return redirect('/')->with('result',"Should be Numeric Value");
-
-        }
 
         $num1 = $request->value1;
         $num2 = $request->value2;

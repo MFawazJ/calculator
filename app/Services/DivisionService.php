@@ -15,10 +15,10 @@ class DivisionService
 
     public function calculate(){
 
-        if($this->valueTwoZero()){
+        if($this->valueTwoZero() && $this->isNumberic() ){
             return $this->value1 / $this->value2;
         }else{
-            return "2nd Value Cannot Be Zero";
+            return "2nd Value Cannot Be Zero or Number Should be Numeric";
         }
 
 
@@ -26,6 +26,14 @@ class DivisionService
 
     private function valueTwoZero(){
         if($this->value2==0){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public function isNumberic(){
+        if(!is_numeric( $this->value1) || !is_numeric($this->value2)){
             return 0;
         }else{
             return 1;

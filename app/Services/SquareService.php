@@ -15,7 +15,7 @@ class SquareService
 
     public function calculate(){
 
-        if($this->isNegative()){
+        if($this->isNegative() && $this->isNumberic()){
 
             return sqrt($this->value1);
         }else{
@@ -28,6 +28,14 @@ class SquareService
     private function isNegative(){
 
         if($this->value1<0){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
+    public function isNumberic(){
+        if(!is_numeric( $this->value1)){
             return 0;
         }else{
             return 1;
